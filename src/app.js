@@ -3,6 +3,14 @@ const  bulbSwitch = function(n){
     let numberOfPerson;
     //tis array will store the number of lights remaining lit
     let bulbsStillOn = [];
+     
+    //loop throught the the erray and check to set the state to true
+    for(let i = 1; i<= bulbs.length; i++ ){
+        if(bulbs[i - 1] == undefined){
+            bulbs[i -1] = {index:`#${i}`, state:true};
+        }
+    }
+
 
     // evaluate if the param given to n is a number
     if(typeof(n)!== "number"){
@@ -12,23 +20,16 @@ const  bulbSwitch = function(n){
         numberOfPerson = n;
     }
     
-    for(let i = 1; i<= bulbs.length; i++ ){
-        if(bulbs[i - 1] == undefined){
-            bulbs[i -1] = {name:`#${i}`, state:true};
-        }
-    }
-
-  
-    for(let j =2; j <= numberOfPerson + 1; j++){
-
     
+    for(let lightIndex = 2; lightIndex <= numberOfPerson + 1; lightIndex++){
+
         for(let i = 1; i <= bulbs.length; i++){
 
-            if((i * j) <= bulbs.length){
-                bulbs[(i * j) -1].state = false;
+            if((i * lightIndex) <= bulbs.length){
+                bulbs[(i * lightIndex) -1].state = false;
             }
              // push the lights to bulbStillOn[] 
-            if((j == numberOfPerson + 1) && (bulbs[i - 1].state == true)){
+            if((lightIndex == numberOfPerson + 1) && (bulbs[i - 1].state == true)){
                 bulbsStillOn.push(bulbs[i - 1]);
            }
         }
@@ -38,4 +39,4 @@ const  bulbSwitch = function(n){
 
 }
 // add a number 
-bulbSwitch(6)
+bulbSwitch(2)
