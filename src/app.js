@@ -1,11 +1,12 @@
-function bulbSwitch(n){
+const  bulbSwitch = function(n){
     let bulbs = new Array(100);
     let numberOfPerson;
+    //tis array will store the number of lights remaining lit
     let bulbsStillOn = [];
 
-
+    // evaluate if the param given to n is a number
     if(typeof(n)!== "number"){
-        console.log(`incorrect value "${n}", it should be a number`);
+        console.log(`"${n}", is not a number`);
 
     }else{
         numberOfPerson = n;
@@ -37,4 +38,4 @@ function bulbSwitch(n){
 
 }
 // put the number 
-bulbSwitch(4)
+bulbSwitch(6)
